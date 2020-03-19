@@ -1,5 +1,6 @@
 import React from 'react';
-import HomesList from './HomesList.jsx'
+import HomesList from './HomesList.jsx';
+const axios = require('axios');
 
 class App extends React.Component {
   constructor(props) {
@@ -7,6 +8,14 @@ class App extends React.Component {
   }
 
   //componentDidMount()
+
+  // axios.get('/user?ID=12345')
+  // .then(function (response) {
+  //   console.log(response);
+  // })
+  // .catch(function (error) {
+  //   console.log(error);
+  // });
 
   render() {
     return (

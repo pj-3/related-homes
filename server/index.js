@@ -5,4 +5,8 @@ const port = 1028;
 
 app.use(express.static(path.join(__dirname, '../client', 'public')))
 
+app.get('/houses', function (req, res) {
+  res.send('Hello World!')
+})
+
 app.listen(port, () => console.log(`And Now Its On Port ${port}`))
