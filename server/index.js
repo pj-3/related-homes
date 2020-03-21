@@ -7,8 +7,13 @@ const controller = require ('./controller.js');
 app.use(express.static(path.join(__dirname, '../client', 'public')))
 
 app.get('/houses', function (req, res) {
-  let result = controller.get(req,res);
-  res.send(result)
+  let oneHouse = {};
+  let callback = (relatedHouses) => {
+    oneHouse = JSON.stringify(relatedHouses)
+    console.log('this is oneHouse: ', oneHouse)
+    res.send(oneHouse)
+  }
+  let result = controller.get(callback);
 })
 
 app.listen(port, () => console.log(`And Now Its On Port ${port}`))

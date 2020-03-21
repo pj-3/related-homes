@@ -12,6 +12,7 @@ module.exports = {
   module: {
     rules: [
       {
+        // devtool: "source-map",
         test: /\.jsx?/,
         include: src_dir,
         exclude: /node_modules/,
