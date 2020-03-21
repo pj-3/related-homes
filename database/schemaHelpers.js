@@ -14,7 +14,7 @@ const makeBedsAndHouseString = () => {
   if (getRandomInt(0,1)) {
     return `${houseTypes[getRandomInt(0,2)]} - ${getRandomInt(2,10)} beds`
   } else {
-    return `Private Room - ${getRandomInt(1,3)} beds`
+    return `Private Room - ${getRandomInt(1,3)} bed(s)`
   }
 }
 
