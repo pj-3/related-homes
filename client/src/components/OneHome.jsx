@@ -14,7 +14,7 @@ class OneHome extends React.Component {
       </div>
       <div>
         <span className="bedsAndHouse">{this.props.home.bedsAndHouse}</span>
-        <span className="rating">{this.props.home.rating}</span>
+        <span className="rating">&#11088;{this.props.home.rating}</span>
       </div>
       <div style={{"clear": "both"}}></div>
       <div className="description">{this.props.home.description}</div>

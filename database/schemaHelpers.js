@@ -8,6 +8,22 @@ const getRandomArbitrary = (min, max) => {
   return Math.random() * (max - min) + min;
 }
 
+const makeRelatedHousesArray = (minHouses, maxHouses, currentHouse, numberOfRelatedHouses) => {
+  if (numberOfRelatedHouses > (maxHouses - minHouses - 1) ) {
+    throw new Error('You asked for more relatedHouses than is possible');
+  }
+  let relatedHouses = [];
+  for (var i = 1; i <= numberOfRelatedHouses; i++) {
+    let addedHouse = getRandomInt(minHouses, maxHouses)
+    while (relatedHouses.includes(addedHouse) || addedHouse === currentHouse) {
+      addedHouse = getRandomInt(minHouses, maxHouses);
+    }
+    relatedHouses.push(addedHouse);
+  }
+  return relatedHouses;
+}
+
+
 const houseTypes = ['Entire House', 'Entire Apartment', 'Entire Villa']
 
 const makeBedsAndHouseString = () => {
@@ -25,4 +41,4 @@ const makeDescription = () => {
   return `${adjectives[getRandomInt(0,adjectives.length-1)]} ${descriptors[getRandomInt(0,descriptors.length-1)]} ${houses[getRandomInt(0, houses.length-1)]}`
 }
 
-module.exports = {makeDescription, makeBedsAndHouseString, getRandomArbitrary, getRandomInt}
+module.exports = {makeDescription, makeBedsAndHouseString, getRandomArbitrary, getRandomInt, makeRelatedHousesArray}

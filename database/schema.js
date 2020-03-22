@@ -7,65 +7,51 @@ const helper = require('./schemaHelpers.js');
 mongoose.connect('mongodb://localhost/Relaxly', {useNewUrlParser: true, useUnifiedTopology: true});
 
 var schema = new mongoose.Schema({
-  houseItem: {type: 'number', unique: true},
-  relatedHouses: [{
-    photoSrc: 'string', // strings of url locations
-    bedsAndHouse: 'string', // 'string and possible number of beds'
-    rating: 'string', // [number between 3-5 with 2 decimals for rating, integer less than 10k for # of strings]
-    description: 'string',
-    pricePerNight: 'string'
-  }]
+  houseId: {type: 'number', unique: true},
+  photoSrc: 'string',
+  bedsAndHouse: 'string',
+  rating: 'string',
+  description: 'string',
+  pricePerNight: 'string',
+  relatedHouses: ['number']
 });
 
 var House = mongoose.model('House', schema);
 
-class houseObj {
-  constructor () {
-  this.photoSrc = 'https://loremflickr.com/320/240',
-  this.bedsAndHouse = helper.makeBedsAndHouseString(),
-  this.rating = `${helper.getRandomArbitrary(3,5).toFixed(2)} (${helper.getRandomInt(10, 10000)})`,
-  this.description = `${helper.makeDescription()}`,
-  this.pricePerNight = `$${faker.commerce.price()}`
-  }
-}
 
-let houseItemMaker = (numberOfObjects) => {
+let houseItemMaker = (numberOfHouses) => {
   let array = [];
-  for (var i = 1; i <= numberOfObjects; i++) {
-    let relatedHouseArray = [];
-    let relatedHouseMaker = () => {
-      for (var j = 0; j < 8; j++) {
-        relatedHouseArray.push(new houseObj)
-      }
+  for (var i = 1; i <= numberOfHouses; i++) {
+    let houseObj = {
+      houseId: i,
+      photoSrc:'https://loremflickr.com/320/240',
+      bedsAndHouse: helper.makeBedsAndHouseString(),
+      rating: `${helper.getRandomArbitrary(3,5).toFixed(2)} (${helper.getRandomInt(10, 10000)})`,
+      description: `${helper.makeDescription()}`,
+      pricePerNight: `$${faker.commerce.price()}`,
+      relatedHouses: helper.makeRelatedHousesArray(1,numberOfHouses, i, 12)
     }
-    relatedHouseMaker();
-    let houseItem = {
-      houseItem: i,
-      relatedHouses: relatedHouseArray
-    }
-    array.push(houseItem)
+    array.push(houseObj);
   }
   return array;
-}
+  }
 
-let query = (callback) => {
-  let getHouses = House.find(null, 'relatedHouses', (err, houses) => {
-    // console.log('this is relatedHouses: ', houses[0].relatedHouses[0]);
-    let relatedHouses = houses[0].relatedHouses;
-    callback(relatedHouses)
-  });
-}
+  let dbSeeder = (numberOfEntries) => {
+    const allHousesArray = houseItemMaker(numberOfEntries)
+    House.insertMany(allHousesArray, function (err) {
+      if (err) {throw (err);}
+    });
+  }
 
-// const allHousesArray = houseItemMaker(10)
+// dbSeeder(100)
 
-// console.log('allHousesArray: ', util.inspect(allHousesArray, { showHidden: true, depth: null }));
-
-
-// for(var k = 1; k <= 10; k++) {
-// House.create(allHousesArray, function (err, small) {
-//   if (err) {throw (err);}
-// });
-// }
+  let query = (callback) => {
+    let getHouses = House.find(null, 'relatedHouses', (err, houses) => {
+      // console.log('this is relatedHouses: ', houses[0].relatedHouses[0]);
+      let relatedHouses = houses[0].relatedHouses;
+      callback(relatedHouses)
+    });
+  }
 
 
 
