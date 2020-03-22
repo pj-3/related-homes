@@ -49,10 +49,10 @@ let houseItemMaker = (numberOfObjects) => {
 }
 
 let query = (callback) => {
-  let relatedHouses = House.find(null, 'relatedHouses', (err, houses) => {
+  let getHouses = House.find(null, 'relatedHouses', (err, houses) => {
     // console.log('this is relatedHouses: ', houses[0].relatedHouses[0]);
-    let oneHouse = houses[0].relatedHouses[0];
-    callback(oneHouse)
+    let relatedHouses = houses[0].relatedHouses;
+    callback(relatedHouses)
   });
 }
 

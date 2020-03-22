@@ -1,21 +1,42 @@
 import React from 'react';
-// import CurrentDisplay from '/CurrentDisplay.jsx';
+const axios = require('axios');
+import OneHome from './OneHome.jsx';
 
 class HomesList extends React.Component {
   constructor(props) {
     super(props);
-    console.log('props: ', props)
+    this.state = {
+      relatedHouses: [
+        {
+          _id: '',
+          photoSrc: '',
+          bedsAndHouse: 'empty string',
+          rating: '',
+          description: '',
+          pricePerNight: '',
+        }
+      ]
+    }
   }
+
+  componentDidMount() {
+    axios.get('/houses')
+    .then((response) => {
+      this.setState({relatedHouses: response.data})
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+  }
+
   render () {
-    console.log('this.props.relatedHouses', this.props.relatedHouses)
-    let photoSrc = this.props.relatedHouses.photoSrc.toString()
     return (
-      <div>
-      <img src='https://loremflickr.com/320/240/house' alt="Girl in a jacket"></img>
-      <div id="bedsAndHouse">{this.props.relatedHouses.bedsAndHouse}</div>
-      <div id="rating">{this.props.relatedHouses.rating}</div>
-      <div id="description">{this.props.relatedHouses.description}</div>
-      <div id="pricePerNight">{this.props.relatedHouses.pricePerNight}</div>
+      <div id="allHouses">
+        <div id="allHousesWrapper">
+          {
+            this.state.relatedHouses.map(oneHouse => <OneHome home={oneHouse} />)
+          }
+        </div>
       </div>
     );
   }

@@ -10,7 +10,6 @@ app.get('/houses', function (req, res) {
   let oneHouse = {};
   let callback = (relatedHouses) => {
     oneHouse = JSON.stringify(relatedHouses)
-    // console.log('this is oneHouse: ', oneHouse)
     res.send(oneHouse)
   }
   let result = controller.get(callback);
