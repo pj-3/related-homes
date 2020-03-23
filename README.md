@@ -37,3 +37,26 @@ From within the root directory:
 npm install -g webpack
 npm install
 ```
+## Usage
+ ### To Run App - Once Dependencies Installed
+
+ All occurs from within the root directory:
+
+ App requires MongoDB
+
+ Seed your database with seeding script:
+
+ ```sh
+ npm run seed
+ ```
+ Build react app with script:
+
+ ```sh
+ npm run react-dev
+ ```
+ Run server:
+
+ ```sh
+ npm start
+ ```
+ Go to url http://localhost:1028/ to view app
