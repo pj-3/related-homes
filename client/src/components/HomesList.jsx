@@ -19,8 +19,12 @@ class HomesList extends React.Component {
     }
   }
 
-  componentDidMount() {
-    axios.get('/houses')
+  _loadData() {
+    axios.get('/houses', {
+      params: {
+        houseId: this.props.houseId
+      }
+    })
     .then((response) => {
       this.setState({relatedHouses: response.data})
     })
@@ -29,12 +33,22 @@ class HomesList extends React.Component {
     });
   }
 
+  componentDidMount() {
+    this._loadData()
+  }
+
+  componentDidUpdate(prevProps) {
+    if (prevProps.houseId !== this.props.houseId) {
+    this._loadData()
+    }
+  }
+
   render () {
     return (
       <div id="allHouses">
         <div id="allHousesWrapper">
           {
-            this.state.relatedHouses.map(oneHouse => <OneHome home={oneHouse} />)
+            this.state.relatedHouses.map(oneHouse => <OneHome home={oneHouse} changeCurrentHouse={this.props.changeCurrentHouse}/>)
           }
         </div>
       </div>

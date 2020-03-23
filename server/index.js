@@ -12,7 +12,7 @@ app.get('/houses', function (req, res) {
     oneHouse = JSON.stringify(relatedHouses)
     res.send(oneHouse)
   }
-  let result = controller.get(callback);
+  let result = controller.get(req.query.houseId, callback);
 })
 
 app.listen(port, () => console.log(`And Now Its On Port ${port}`))

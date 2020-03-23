@@ -1,10 +1,14 @@
-// const db = require('db');
-const faker = require('faker')
 const mongoose = require('mongoose')
+const faker = require('faker')
 const util = require('util')
 const helper = require('./schemaHelpers.js');
 
-mongoose.connect('mongodb://localhost/Relaxly', {useNewUrlParser: true, useUnifiedTopology: true});
+let options = {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+  connectTimeoutMS: 1000,
+}
+mongoose.connect('mongodb://localhost/Relaxly', options);
 
 var schema = new mongoose.Schema({
   houseId: {type: 'number', unique: true},
@@ -24,7 +28,7 @@ let houseItemMaker = (numberOfHouses) => {
   for (var i = 1; i <= numberOfHouses; i++) {
     let houseObj = {
       houseId: i,
-      photoSrc:'https://loremflickr.com/320/240',
+      photoSrc:helper.imageLoader(),
       bedsAndHouse: helper.makeBedsAndHouseString(),
       rating: `${helper.getRandomArbitrary(3,5).toFixed(2)} (${helper.getRandomInt(10, 10000)})`,
       description: `${helper.makeDescription()}`,
@@ -40,19 +44,9 @@ let houseItemMaker = (numberOfHouses) => {
     const allHousesArray = houseItemMaker(numberOfEntries)
     House.insertMany(allHousesArray, function (err) {
       if (err) {throw (err);}
+      mongoose.connection.close()
     });
   }
 
-// dbSeeder(100)
+dbSeeder(100)
 
-  let query = (callback) => {
-    let getHouses = House.find(null, 'relatedHouses', (err, houses) => {
-      // console.log('this is relatedHouses: ', houses[0].relatedHouses[0]);
-      let relatedHouses = houses[0].relatedHouses;
-      callback(relatedHouses)
-    });
-  }
-
-
-
-module.exports = { query }

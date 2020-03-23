@@ -4,13 +4,13 @@ import React from 'react';
 class OneHome extends React.Component {
   constructor(props) {
     super(props);
-    console.log('props in OneHome: ', props)
+    // console.log('props in OneHome: ', props)
   }
   render () {
     return (
-      <div className="singleHome" id={this.props.home._id}>
+      <div className="singleHome" onClick={() => {this.props.changeCurrentHouse(this.props.home.houseId)}} id={this.props.home._id}>
       <div>
-        <img src='https://loremflickr.com/320/240/house' alt="Picture of a House"></img>
+        <img src={this.props.home.photoSrc} width="320" height="240" alt="Picture of a House"></img>
       </div>
       <div>
         <span className="bedsAndHouse">{this.props.home.bedsAndHouse}</span>
