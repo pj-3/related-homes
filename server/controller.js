@@ -3,9 +3,9 @@ const controller = express.Router();
 const models = require ('./models.js');
 
 
-let get = (callback) => {
+let get = (houseId, callback) => {
 
-  models.query(callback)
+  models.query(houseId, callback)
 };
 
 module.exports = { get };

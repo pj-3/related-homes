@@ -10,10 +10,9 @@ app.get('/houses', function (req, res) {
   let oneHouse = {};
   let callback = (relatedHouses) => {
     oneHouse = JSON.stringify(relatedHouses)
-    console.log('this is oneHouse: ', oneHouse)
     res.send(oneHouse)
   }
-  let result = controller.get(callback);
+  let result = controller.get(req.query.houseId, callback);
 })
 
 app.listen(port, () => console.log(`And Now Its On Port ${port}`))
