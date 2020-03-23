@@ -10,7 +10,8 @@
   "scripts": {
     "start": "nodemon server",
     "react-dev": "webpack -w",
-    "test": "jest"
+    "test": "jest",
+    "seed": "node database/schema.js"
   },
   "dependencies": {
     "@babel/core": "^7.8.7",
