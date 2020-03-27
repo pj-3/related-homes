@@ -1,30 +1,24 @@
 import React from 'react';
 import HomesList from './HomesList.jsx';
 
+let pageNum =
 
-
+console.log('this is window.location.href in ApP: ', window.location.href)
 
 
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      currentHouse: 1 //
+      currentHouse: 1 // received from url
     }
     this.changeCurrentHouse = this.changeCurrentHouse.bind(this);
   }
-
-changeCurrentHouse (newHouse) {
-
-  console.log('do you even click bro?')
-  console.log('this is newHouse: ', newHouse)
-  this.setState({currentHouse: newHouse})
-
-
-}
+  changeCurrentHouse (newHouse) {
+    this.setState({currentHouse: newHouse})
+  }
 
   render() {
-    console.log('this is currentHouse state: ', this.state.currentHouse)
     return (
 
       <div>

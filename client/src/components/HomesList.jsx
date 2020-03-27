@@ -1,6 +1,7 @@
 import React from 'react';
 const axios = require('axios');
 import OneHome from './OneHome.jsx';
+import Styles from './Styles.js';
 
 class HomesList extends React.Component {
   constructor(props) {
@@ -20,7 +21,7 @@ class HomesList extends React.Component {
   }
 
   _loadData() {
-    axios.get('/houses', {
+    axios.get(`/houses/1`, {
       params: {
         houseId: this.props.houseId
       }
@@ -45,13 +46,13 @@ class HomesList extends React.Component {
 
   render () {
     return (
-      <div id="allHouses">
-        <div id="allHousesWrapper">
+      <Styles.AllHouses>
+        <Styles.AllHousesWrapper>
           {
             this.state.relatedHouses.map(oneHouse => <OneHome home={oneHouse} changeCurrentHouse={this.props.changeCurrentHouse}/>)
           }
-        </div>
-      </div>
+        </Styles.AllHousesWrapper>
+      </Styles.AllHouses>
     );
   }
 }

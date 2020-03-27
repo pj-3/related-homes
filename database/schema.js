@@ -6,12 +6,13 @@ const helper = require('./schemaHelpers.js');
 let options = {
   useNewUrlParser: true,
   useUnifiedTopology: true,
+  useCreateIndex: true,
   connectTimeoutMS: 1000,
 }
-mongoose.connect('mongodb://localhost/Relaxly', options);
+mongoose.connect('mongodb://localhost/RelaxlyRelatedHouses', options );
 
-var schema = new mongoose.Schema({
-  houseId: {type: 'number', unique: true},
+const schema = new mongoose.Schema({
+  _id: {type: 'number', unique: true},
   photoSrc: 'string',
   bedsAndHouse: 'string',
   rating: 'string',
@@ -20,7 +21,8 @@ var schema = new mongoose.Schema({
   relatedHouses: ['number']
 });
 
-var House = mongoose.model('House', schema);
+
+const House = mongoose.model('House', schema);
 
 
 let houseItemMaker = (numberOfHouses) => {

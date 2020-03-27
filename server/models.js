@@ -3,6 +3,7 @@ const mongoose = require('mongoose')
 let options = {
   useNewUrlParser: true,
   useUnifiedTopology: true,
+  useCreateIndex: true,
   socketTimeoutMS: 1000,
 }
 mongoose.connect('mongodb://localhost/Relaxly', options);
@@ -21,8 +22,11 @@ var House = mongoose.model('House', schema);
 
 
 let query = (houseId, callback) => {
-  let getHouses = House.find({ houseId }, 'relatedHouses', (err, house) => {
+  let getHouses = House.find({ houseId }, null, (err, house) => {
+    console.log(`this is house: ${house}`)
+    let returnId = house[0].houseId
     House.find ({houseId: {$in: house[0].relatedHouses}}, (err, houses) => {
+      // console.log(`this is houses: ${houses}`)
       callback(houses)
     })
   });
