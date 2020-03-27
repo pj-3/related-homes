@@ -1,16 +1,17 @@
 import React from 'react';
 import HomesList from './HomesList.jsx';
 
-let pageNum =
-
-console.log('this is window.location.href in ApP: ', window.location.href)
-
+let url = window.location.href
+let pageGrabber = () => {
+  let array = url.split('/')
+  return array[array.length-2]
+};
 
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      currentHouse: 1 // received from url
+      currentHouse: pageGrabber()
     }
     this.changeCurrentHouse = this.changeCurrentHouse.bind(this);
   }
