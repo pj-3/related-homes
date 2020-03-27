@@ -12,7 +12,7 @@ let options = {
 mongoose.connect('mongodb://localhost/RelaxlyRelatedHouses', options );
 
 const schema = new mongoose.Schema({
-  _id: {type: 'number', unique: true},
+  houseId: {type: 'number', unique: true},
   photoSrc: 'string',
   bedsAndHouse: 'string',
   rating: 'string',
