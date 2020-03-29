@@ -25,7 +25,6 @@ var House = mongoose.model('House', schema);
 
 
 let query = (houseId, callback) => {
-  console.log('this is houseId', houseId)
   let getHouses = House.find({ houseId }, null, (err, house) => {
     let returnId = house[0].houseId
     House.find ({houseId: {$in: house[0].relatedHouses}}, (err, houses) => {

@@ -5,6 +5,7 @@ let url = window.location.search;
 console.log('this is url: ', url)
 let pageGrabber = () => {
   let array = url.split('=')
+  console.log('array: ', array)
   if (array.length === 2) {
   return array[1];
   } else {
