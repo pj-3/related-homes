@@ -9,7 +9,7 @@ class HomesList extends React.Component {
     this.state = {
       relatedHouses: [
         {
-          _id: '',
+          houseId: '',
           photoSrc: '',
           bedsAndHouse: 'empty string',
           rating: '',

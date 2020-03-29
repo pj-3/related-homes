@@ -1,10 +1,15 @@
 import React from 'react';
 import HomesList from './HomesList.jsx';
 
-let url = window.location.href
+let url = window.location.search;
+console.log('this is url: ', url)
 let pageGrabber = () => {
-  let array = url.split('/')
-  return array[array.length-2]
+  let array = url.split('=')
+  if (array.length === 2) {
+  return array[1];
+  } else {
+    return 1;
+  }
 };
 
 class App extends React.Component {

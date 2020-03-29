@@ -7,7 +7,12 @@ const controller = require ('./controller.js');
 
 app.use('/',express.static(path.join(__dirname, '../client', 'public')))
 
+app.get('/:houseId(\\d+)', (req, res) => {
+  res.redirect(`/?houseId=${req.params.houseId}`)
+})
+
 app.get('/houses/*', function (req, res) {
+  console.log('test')
   let oneHouse = {};
   let callback = (relatedHouses) => {
     oneHouse = JSON.stringify(relatedHouses)

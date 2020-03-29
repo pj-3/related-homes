@@ -8,8 +8,10 @@ let options = {
   useUnifiedTopology: true,
   useCreateIndex: true,
   connectTimeoutMS: 1000,
+  user: 'craiglion',
+  pass: 'foobarbaz'
 }
-mongoose.connect('mongodb://localhost/RelaxlyRelatedHouses', options );
+mongoose.connect('mongodb://3.101.35.18/RelaxlyRelatedHouses?authSource=admin', options );
 
 const schema = new mongoose.Schema({
   houseId: {type: 'number', unique: true},
