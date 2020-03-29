@@ -1,30 +1,30 @@
 import React from 'react';
 import HomesList from './HomesList.jsx';
 
-
-
-
+let url = window.location.search;
+console.log('this is url: ', url)
+let pageGrabber = () => {
+  let array = url.split('=')
+  if (array.length === 2) {
+  return array[1];
+  } else {
+    return 1;
+  }
+};
 
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      currentHouse: 1 //
+      currentHouse: pageGrabber()
     }
     this.changeCurrentHouse = this.changeCurrentHouse.bind(this);
   }
-
-changeCurrentHouse (newHouse) {
-
-  console.log('do you even click bro?')
-  console.log('this is newHouse: ', newHouse)
-  this.setState({currentHouse: newHouse})
-
-
-}
+  changeCurrentHouse (newHouse) {
+    this.setState({currentHouse: newHouse})
+  }
 
   render() {
-    console.log('this is currentHouse state: ', this.state.currentHouse)
     return (
 
       <div>
