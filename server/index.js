@@ -3,8 +3,9 @@ const path = require ('path');
 const app = express();
 const port = 1028;
 const controller = require ('./controller.js');
+const cors = require('cors')
 
-
+app.use(cors())
 app.use('/',express.static(path.join(__dirname, '../client', 'public')))
 
 app.get('/:houseId(\\d+)', (req, res) => {

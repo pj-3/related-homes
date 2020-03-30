@@ -21,7 +21,7 @@ class HomesList extends React.Component {
   }
 
   _loadData() {
-    axios.get(`http://localhost:1028/houses/1`, {
+    axios.get(`/houses/1`, {
       params: {
         houseId: this.props.houseId
       }
