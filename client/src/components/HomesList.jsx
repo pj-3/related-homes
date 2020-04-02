@@ -27,6 +27,7 @@ class HomesList extends React.Component {
       }
     })
     .then((response) => {
+      console.log(response)
       this.setState({relatedHouses: response.data})
     })
     .catch((error) => {
@@ -49,7 +50,7 @@ class HomesList extends React.Component {
       <Styles.AllHouses>
         <Styles.AllHousesWrapper>
           {
-            this.state.relatedHouses.map(oneHouse => <OneHome home={oneHouse} changeCurrentHouse={this.props.changeCurrentHouse}/>)
+            this.state.relatedHouses.map((oneHouse) => <OneHome key={oneHouse.houseId} home={oneHouse} changeCurrentHouse={this.props.changeCurrentHouse}/>)
           }
         </Styles.AllHousesWrapper>
       </Styles.AllHouses>

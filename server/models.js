@@ -1,4 +1,5 @@
-const mongoose = require('mongoose')
+const mongoose = require('mongoose');
+mongoose.set('debug', true);
 
 let mongoHost = process.env.MONGOHOST || 'localhost'
 
@@ -6,10 +7,10 @@ let options = {
   useNewUrlParser: true,
   useUnifiedTopology: true,
   useCreateIndex: true,
-  socketTimeoutMS: 1000,
-  authSource: 'admin'
+  socketTimeoutMS: 1000
 }
-mongoose.connect(`mongodb://${mongoHost}/RelaxlyRelatedHouses`, options);
+
+mongoose.connect(`mongodb://${mongoHost}`, options);
 
 var schema = new mongoose.Schema({
   houseId: {type: 'number', unique: true},
@@ -25,10 +26,13 @@ var House = mongoose.model('House', schema);
 
 
 let query = (houseId, callback) => {
-  let getHouses = House.find({ houseId }, null, (err, house) => {
-    let returnId = house[0].houseId
-    House.find ({houseId: {$in: house[0].relatedHouses}}, (err, houses) => {
-      callback(houses)
+
+  House.find({ houseId }, null, (err, house) => {
+    if (err) { callback(err) }
+
+    let returnId = house.houseId
+    House.find({houseId: {$in: house[0].relatedHouses}}, (err, houses) => {
+      callback(null, houses)
     })
   });
 }

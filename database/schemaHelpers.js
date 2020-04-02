@@ -24,7 +24,7 @@ const makeRelatedHousesArray = (minHouses, maxHouses, currentHouse, numberOfRela
 }
 
 
-const houseTypes = ['Entire House', 'Entire Apartment', 'Entire Villa']
+const houseTypes = ['Enti1028/tcpre House', 'Entire Apartment', 'Entire Villa']
 
 const makeBedsAndHouseString = () => {
   if (getRandomInt(0,1)) {

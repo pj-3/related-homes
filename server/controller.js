@@ -1,11 +1,18 @@
-const express = require('express');
-const controller = express.Router();
-const models = require ('./models.js');
+const models = require('./models.js');
 
 
 let get = (houseId, callback) => {
 
-  models.query(houseId, callback)
+ return models.query(houseId, callback)
 };
 
-module.exports = { get };
+const GET = (req, res, next) => {
+    return res.send(req.params.id);
+}
+
+const PUT = (req, res, next) => {
+    return res.send('PUT');
+}
+
+
+module.exports = { get, GET, PUT };
