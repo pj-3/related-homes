@@ -1,26 +1,27 @@
 const express = require('express');
 const path = require('path');
-const controller = require('./controller.js');
-const cors = require('cors')
-
+const cors = require('cors');
 const app = express();
-const router = express.Router();
 
 app.use(cors())
 app.use(express.static(path.join('client', 'public')))
 
+// create database connection
+const connection = require('../database/mongo/connection.js');
+app.connection = connection;
 
-app.get('/houses/:houseId(\\d+)', (req, res) => {
-  controller.get(req.params.houseId, (error, dbResponse) => {
-    processDatabaseResponse(error, dbResponse, res)
-  });
-})
+// load controller routes
+const v1Router = require('../controllers/index.js');
 
 
-const processDatabaseResponse = (error, dbResponse, res) => {
-  if (error) { console.log('Controller callback error', error); res.status(404).send() }
-  return res.status(200).send(dbResponse)
-}
+// add controller routes
+app.use('/', v1Router);
+
+
+var port = process.env.PORT || 5000;
+app.listen(port, () => console.log(`Related Houses Listening ${port}`))
+
+
 
 
 // app.use('/rentals/:id', controller.GET);
@@ -46,7 +47,3 @@ const processDatabaseResponse = (error, dbResponse, res) => {
 //   controller.get( req.query.houseId, callback);
 // })
 
-
-
-var port = process.env.PORT || 4000;
-app.listen(port, () => console.log(`Related Houses Listening ${port}`))

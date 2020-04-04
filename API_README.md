@@ -27,29 +27,29 @@
     {
         "_id": "ObjectId('5e841f9bde7b495901bf12ac')",
         "related_houses": "[1, 2, 4, 7, 20 ]",
-        "house_id": "10",
+        "houseId": "10",
         "photoSrc": "https://relaxly-photos.s3-us-west-1.amazonaws.com/whitehouse.jpg",
         "bedsAndHouse": "Private Room - 3 beds(s)",
         "rating": "4.19 (2344)",
         "description": "Supurb Lakeside Cottage",
         "pricePerNight": "$266",
         "v1":{
+            "rentals_id": "ObjectId('5e841f9bde7b495901bf12ac')",
             "related_rentals": "[ ObjectId(5e841f9bde7b495901bf12ac), ObjectId(5e841f9bde7b495901bf66je) ]",
-            "primaryPhoto": "https://relaxly-photos.s3-us-west-1.amazonaws.com/whitehouse.jpg",
+            "primary_photo": "https://relaxly-photos.s3-us-west-1.amazonaws.com/whitehouse.jpg",
             "created_date": "2014-06-25T00:00:00.000Z",
             "updated_date": "2014-06-25T00:00:00.000Z",
             "owner": "ObjectId(5e841f9bde7b495901bf72nd)",
-            "rentalType": "apartment",
-            "photos": {
+            "rentals_types": "apartment",
+            "photo": {
                 "_id": "ObjectId('5e841f9bde7b495901bhd7778h')",
-                "rental_id": "ObjectId('5e841f9bde7b495901bf12ac')",
                 "photos": "[\"https://relaxly-photos.s3-us-west-1.amazonaws.com/whitehouse.jpg\"]",
                 "max": "8",
-                "primary": "1"
+                "primary_photo_index": "1"
             },
             "capacity": {
-                "type" "room:
-                "occupancy": "4",
+                "types" "room:
+                "occupancies": "4",
                 "min": "1",
                 "max": "4",
                 "maxAdult": "4",
@@ -62,43 +62,43 @@
             },
             "rating": {
                 "raters": "[ ObjectId(5e841f9bde7b495901bf12ac), ObjectId(5e841f9bde7b495901bf12ac) ]",
-                "rateType": "rental",
-                "avgRate": "4.19",
-                "totalRaters": "2344"
+                "rate_types": "rental",
+                "avg_ratings": "4.19",
+                "total_raters": "2344"
             },
-            "pricing": {
-                "rate": "266",
-                "term": "1",
-                "termType": "per night"
+            "fees": {
+                "rates": "266",
+                "terms": "1",
+                "term_types": "per night"
             },
         },
     },
     {
         "_id": "ObjectId('5e841f9bde7b495901bf12ac')",
         "related_houses": "[1, 2, 4, 7, 20 ]",
-        "house_id": "10",
+        "houseId": "10",
         "photoSrc": "https://relaxly-photos.s3-us-west-1.amazonaws.com/whitehouse.jpg",
         "bedsAndHouse": "Private Room - 3 beds(s)",
         "rating": "4.19 (2344)",
         "description": "Supurb Lakeside Cottage",
         "pricePerNight": "$266",
         "v1":{
+            "rentals_id": "ObjectId('5e841f9bde7b495901bf12ac')",
             "related_rentals": "[ ObjectId(5e841f9bde7b495901bf12ac), ObjectId(5e841f9bde7b495901bf66je) ]",
-            "primaryPhoto": "https://relaxly-photos.s3-us-west-1.amazonaws.com/whitehouse.jpg",
+            "primary_photo": "https://relaxly-photos.s3-us-west-1.amazonaws.com/whitehouse.jpg",
             "created_date": "2014-06-25T00:00:00.000Z",
             "updated_date": "2014-06-25T00:00:00.000Z",
             "owner": "ObjectId(5e841f9bde7b495901bf72nd)",
-            "rentalType": "apartment",
-            "photos": {
+            "rentals_types": "apartment",
+            "photo": {
                 "_id": "ObjectId('5e841f9bde7b495901bhd7778h')",
-                "rental_id": "ObjectId('5e841f9bde7b495901bf12ac')",
                 "photos": "[\"https://relaxly-photos.s3-us-west-1.amazonaws.com/whitehouse.jpg\"]",
                 "max": "8"
-                "primary": "1"
+                "primary_photo_index": "1"
             },
             "capacity": {
-                "type" "room:
-                "occupancy": "4",
+                "types" "room:
+                "occupancies": "4",
                 "min": "1",
                 "max": "4",
                 "maxAdult": "4",
@@ -111,14 +111,14 @@
             },
             "rating": {
                 "raters": "[ ObjectId(5e841f9bde7b495901bf12ac), ObjectId(5e841f9bde7b495901bf12ac) ]",
-                "rateType": "rental",
-                "avgRate": "4.19",
-                "totalRaters": "2344"
+                "rate_types": "rental",
+                "avg_ratings": "4.19",
+                "total_raters": "2344"
             },
-            "pricing": {
-                "rate": "266",
-                "term": "1",
-                "termType": "per night"
+            "fees": {
+                "rates": "266",
+                "terms": "1",
+                "term_types": "per night"
             },
         },
     },
@@ -145,29 +145,29 @@
     {
         "_id": "ObjectId('5e841f9bde7b495901bf12ac')",
         "related_houses": "[1, 2, 4, 7, 20 ]",
-        "house_id": "10",
+        "houseId": "10",
         "photoSrc": "https://relaxly-photos.s3-us-west-1.amazonaws.com/whitehouse.jpg",
         "bedsAndHouse": "Private Room - 3 beds(s)",
         "rating": "4.19 (2344)",
         "description": "Supurb Lakeside Cottage",
         "pricePerNight": "$266",
         "v1":{
+            "rentals_id": "ObjectId('5e841f9bde7b495901bf12ac')",
             "related_rentals": "[ ObjectId(5e841f9bde7b495901bf12ac), ObjectId(5e841f9bde7b495901bf66je) ]",
-            "primaryPhoto": "https://relaxly-photos.s3-us-west-1.amazonaws.com/whitehouse.jpg",
+            "primary_photo": "https://relaxly-photos.s3-us-west-1.amazonaws.com/whitehouse.jpg",
             "created_date": "2014-06-25T00:00:00.000Z",
             "updated_date": "2014-06-25T00:00:00.000Z",
             "owner": "ObjectId(5e841f9bde7b495901bf72nd)",
-            "rentalType": "apartment",
-            "photos": {
+            "rentals_types": "apartment",
+            "photo": {
                 "_id": "ObjectId('5e841f9bde7b495901bhd7778h')",
-                "rental_id": "ObjectId('5e841f9bde7b495901bf12ac')",
                 "photos": "[\"https://relaxly-photos.s3-us-west-1.amazonaws.com/whitehouse.jpg\"]",
                 "max": "8"
-                "primary": "1"
+                "primary_photo_index": "1"
             },
             "capacity": {
-                "type" "room:
-                "occupancy": "4",
+                "types" "room:
+                "occupancies": "4",
                 "min": "1",
                 "max": "4",
                 "maxAdult": "4",
@@ -180,14 +180,14 @@
             },
             "rating": {
                 "raters": "[ ObjectId(5e841f9bde7b495901bf12ac), ObjectId(5e841f9bde7b495901bf12ac) ]",
-                "rateType": "rental",
-                "avgRate": "4.19",
-                "totalRaters": "2344"
+                "rate_types": "rental",
+                "avg_ratings": "4.19",
+                "total_raters": "2344"
             },
-            "pricing": {
-                "rate": "266",
-                "term": "1",
-                "termType": "per night"
+            "fees": {
+                "rates": "266",
+                "terms": "1",
+                "term_types": "per night"
             },
         },
     },
@@ -216,11 +216,11 @@
 [
     {
         "_id": "ObjectId('5e841f9bde7b495901bhhe77s')",
-        "rental_id": "ObjectId('5e841f9bde7b495901bf12ac')",
+        "rentals_id": "ObjectId('5e841f9bde7b495901bf12ac')",
         "raters": "[ ObjectId(5e841f9bde7b495901bf12ac), ObjectId(5e841f9bde7b495901bf12ac) ]",
-        "rateType": "rental",
-        "avgRate": "4.19",
-        "totalRaters": "2344"
+        "rate_types": "rental",
+        "avg_ratings": "4.19",
+        "total_raters": "2344"
     },
 ]
 ```
@@ -244,7 +244,7 @@
 [
     {
         "_id": "ObjectId('5e841f9bde7b495901bhd7778h')",
-        "rental_id": "ObjectId('5e841f9bde7b495901bf12ac')",
+        "rentals_id": "ObjectId('5e841f9bde7b495901bf12ac')",
         "photos": "[\"https://relaxly-photos.s3-us-west-1.amazonaws.com/whitehouse.jpg\"]",
         "max": "8",
         "primary": "1"
@@ -275,7 +275,7 @@
 [
     {
       "_id": "ObjectId('5e841f9bde7b495901bhd16s')",
-      "rental_id": "ObjectId('5e841f9bde7b495901bf12ac')",
+      "rentals_id": "ObjectId('5e841f9bde7b495901bf12ac')",
       "heading": "Supurb Lakeside Cottage",
       "subheading": "beautiful lake side view",
       "amenities": "[\"wifi\", \"free coffee\", \"daily cleaning service\" ]"
@@ -305,7 +305,7 @@
 [
     {
       "_id": "ObjectId('5e841f9bde7b495901bhd16s')",
-      "rental_id": "ObjectId('5e841f9bde7b495901bf12ac')",
+      "rentals_id": "ObjectId('5e841f9bde7b495901bf12ac')",
       "heading": "Supurb Lakeside Cottage",
       "subheading": "beautiful lake side view",
       "amenities": "[\"wifi\", \"free coffee\", \"daily cleaning service\" ]"
@@ -317,7 +317,7 @@
 </br>
 
 
-**GET**: /pricingy/rentals/{id}
+**GET**: /fees/rentals/{id}
 --
 #### Description: returns capacity information about the rental
 |  Params   | Response  |    MediaType     |      DataType   |
@@ -336,10 +336,10 @@
 [
     {
       "_id": "ObjectId('5e841f9bde7b495901bjhdj2')",
-      "rental_id": "ObjectId('5e841f9bde7b495901bf12ac')",
-      "rate": "266",
-      "term": "1",
-      "termType": "per night"
+      "rentals_id": "ObjectId('5e841f9bde7b495901bf12ac')",
+      "rates": "266",
+      "terms": "1",
+      "term_types": "per night"
     },
 ]
 ```
@@ -378,13 +378,13 @@
 
 
 
-**POST**: /ratings/{rating}/rentals/{id}
+**POST**: /ratings/rentals/{rating}
 --
 #### Description: creates a rental listing
 
 |  Params   | Request          |    MediaType     |      DataType   |
 |-----------|------------------|------------------|-----------------|
-|  rating   |                  | application/json |     Number      |
+|  rating   |                  | application/json |    Object       |
 
 
 
@@ -401,7 +401,7 @@
 
 
 
-**POST**: /descriptions/{description}rentals/{id}
+**POST**: /descriptions/rentals/{description}
 
 --
 #### Description: creates description information for the rental
@@ -425,7 +425,7 @@
 
 
 
-**POST**: /capacity/{capacity}
+**POST**: /capacity/rentals/{capacity}
 --
 #### Description: creates capacity information for the rental
 
@@ -447,13 +447,13 @@
 </br>
 
 
-**POST**: /pricing/{pricing}
+**POST**: /fees/rentals/{fees}
 --
 #### Description: creates capacity information for the rental
 
 |  Params        | Request          |    MediaType     |      DataType   |
 |----------------|------------------|------------------|-----------------|
-|  pricing       |                  | application/json |     Object      |
+|  fees          |                  | application/json |     Object      |
 
 
 
@@ -473,7 +473,7 @@
 ----
 </br>
 
-**PATCH**: /ratings/{rating}
+**PATCH**: /ratings/rentals/{rating}
 --
 #### Description: updates the rating of a rental
 
@@ -497,7 +497,7 @@
 
 
 
-**PATCH**: /descriptions/{description}
+**PATCH**: /descriptions/rentals/{description}
 --
 #### Description: updates the description of a rental
 
@@ -519,7 +519,7 @@
 
 
 
-**PATCH**: /capacity/{capacity}
+**PATCH**: /capacity/rentals/{capacity}
 --
 #### Description: updates the capacity of a rental
 
@@ -541,13 +541,13 @@
 
 
 
-**PATCH**: /pricing/{pricing}
+**PATCH**: /fees/rentals/{fees}
 --
-#### Description: updates the pricing of a rental
+#### Description: updates the fees of a rental
 
 |  Params        | Request          |    MediaType     |      DataType   |
 |----------------|------------------|------------------|-----------------|
-|  pricing       |                  | application/json |     Object      |
+|  fees       |                  | application/json |     Object      |
 
 
 
