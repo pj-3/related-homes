@@ -139,7 +139,7 @@
 
 **GET**: /rentals/:id/photos
 --
-#### Description: returns photos of the rental
+#### Description: returns photos of the rental=
 |  Params   | Response  |    MediaType     |      DataType   |
 |-----------|------------------|-----------------|-----------------|
 |  id       |  200 Ok          | application/json | Object         |
