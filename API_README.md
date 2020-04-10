@@ -1,5 +1,7 @@
-# Related houses 
+# Related houses / rentals
 ---
+
+
 
 
 # API Endpoints:

@@ -7,6 +7,9 @@ npm
 npm-debug.log
 node_modules/
 
+##
+*.json
+
 pids
 *.pid
 logs

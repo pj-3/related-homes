@@ -1,19 +1,25 @@
 const express = require('express');
 const router = express.Router();
 
-const houses_controller = require('./mongo/houses.js');
+const mongo_rentals_controller = require('./mongo/rentals.js');
 
-router.get('/houses/:houseId', houses_controller.get);
-router.get('/v1/rentals'),
-router.get('/v1/rentals/:id', houses_controller.get), 
-router.get('/v1/ratings'),
+// MONGO
+router.get('/v1/m/rentals', mongo_rentals_controller.get),
+router.get('/v1/m/rentals/:id'), 
+router.get('/v1/m/ratings'),
 
 // could these be internal routes
-router.get('/v1/ratings/rentals/:id'),
-router.get('/v1/photos/rentals/:id'),
-router.get('/v1/descriptions/rentals/:id'),
-router.get('/v1/capacity/rentals/:id'),
-router.get('/v1/fees/rentals/:id')
+router.get('/v1/m/ratings/rentals/:id'),
+router.get('/v1/m/photos/rentals/:id'),
+router.get('/v1/m/descriptions/rentals/:id'),
+router.get('/v1/m/capacity/rentals/:id'),
+router.get('/v1/m/fees/rentals/:id')
+
+const postgres_rentals_controller = require('./postgres/rentals');
+
+// POSTGRES
+router.get('/v1/p/rentals', postgres_rentals_controller.rentals_list)
+
 
 
 module.exports = router;
