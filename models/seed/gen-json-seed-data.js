@@ -6,7 +6,7 @@ const helper = require('../../database/mongo/schemaHelpers.js');
 let rentalId = 21;
 function writeNTimes(writer, qty, encoding, callback) {
     let totalRecords = qty + rentalId - 1;
-    
+
     console.log('writing ...')
     writer.write('[', encoding); // insert array start bracket
     // start write
@@ -47,33 +47,52 @@ function build(rentalId, totalRecords) {
     const houseTypes = ['apartment unit', 'living rooom', 'condo', 'loft', 'house', 'enti1028/tcpre house', 'entire apartment', 'entire villa']
     let bedsAndHouse = helper.makeBedsAndHouseString(houseTypes);
     let photoSrc = faker.image.imageUrl(320, 240, 'city', true);
+    let description = faker.lorem.paragraph(Math.floor(Math.random() * 20))
 
-    let pricePerNight = faker.commerce.price()
+    let pricePerNight = faker.commerce.price();
     let bedsAndHouseParts = bedsAndHouse.split('-');
     let rentals_types = bedsAndHouseParts[0].trim();
 
-    let occupancies =  Math.floor(Math.random() * 8);
+    let occupancies = Math.floor(Math.random() * 24);
     let maxCapacity = Math.floor(Math.random() * occupancies);
     let maxAdult = Math.floor(Math.random() * maxCapacity);
     let maxChildren = Math.floor(Math.random() * maxAdult);
 
+    const generateRaters = function () {
+        let totalRaters = 100000;
+        let votersCount = (Math.floor(Math.random() * totalRaters)) * (Math.random() / 10000);
+        let raters = [];
+        for (let i = 0; i < votersCount; i++) {
+            let rater = {};
+            let voterRating = parseFloat(Math.random() * 5);
+            rater.raters_id = Math.floor(Math.random() * totalRaters);
+            rater.voters_rating = voterRating;
+            raters.push(rater);
+            rater = null;
+        }
+        return raters;
+    }
 
+    const raters = generateRaters();
+    const rating = raters.reduce((rating, rater) => rating + rater.voters_rating, 0);
     const amenities = ['wifi', 'free coffee', 'daily cleaning service', 'breakfast', 'laundry', 'kitchen'];
     let amenItems = amenities.slice(Math.floor(Math.random() * amenities.length))
 
 
     const rentals = {
-        rentals_id: ''+rentalId,
+        rentals_id: rentalId,
         primary_photo: photoSrc,
-        owner: ''+rentalId,
+        owner: rentalId,
         rentals_types: rentals_types,
-        raters: ''+(Math.floor(Math.random() * 1000)),
+        rating: rating / raters.length,
+        raters: raters,
         capacity_max: occupancies > 3 ? occupancies : 2,
         max_children: maxChildren > 3 ? maxChildren : 0,
-        rates: pricePerNight,
+        rates: parseFloat(pricePerNight),
         term_types: 'per night',
         heading: helper.makeDescription(),
         subheading: helper.makeDescription(),
+        description: description,
         amenities: amenItems,
         photos: [photoSrc],
         created_date: new Date(),
@@ -90,35 +109,39 @@ function build(rentalId, totalRecords) {
 let startTime = new Date();
 let totalQty = 0;
 let runtime = undefined;
+let qty = 100000;
+let fileParts = 0;
+const encoding = 'utf8';
 
-function runWrite(callback) {
+function runWrite(fileParts, callback) {
 
-    const qty = 500000;
-    const encoding = 'utf8';
-    let fileParts = 0;
 
-    setInterval(function() {
-        if (fileParts === 20) {
-            runtime = new Date() - startTime;
-            return callback(`Done writing ${qty} records in ${runtime} secs`);
-        }
+    if (fileParts === 100) {
+        runtime = new Date() - startTime;
+        callback(`Done writing ${totalQty} records in ${runtime / 1000} secs`);
+        return;
+    }
 
-        const writer = fs.createWriteStream('./seed-data/rentals-'+fileParts+'-data.json');
+    const writer = fs.createWriteStream('./seed-data/rentals-' + fileParts + '-data.json');
+    // const writer = fs.createWriteStream('./sample-rentals-data.json');
 
-        writeNTimes(writer, qty, encoding, (err, data) => {
-            if (err) { console.log('error=', err) };
-            totalQty += qty;
-            runtime = new Date() - startTime;
-            console.log('Done writing ... ', totalQty)
-        });
+    writeNTimes(writer, qty, encoding, (err, data) => {
+        if (err) { console.log('error=', err) };
+        totalQty += qty;
+        runtime = new Date() - startTime;
+        console.log('Done writing ... ', totalQty)
         fileParts++;
-
-    }, 10000); // timebox 1 set to determine interval time
+        console.log('fileparts', fileParts);
+        return runWrite(fileParts, callback)
+    });
 
 }
 
-runWrite((message) => {
+// runWrite(fileParts);
+
+runWrite(fileParts, (message) => {
     console.log(message);
+    return;
 });
 
 
