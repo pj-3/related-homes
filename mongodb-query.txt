@@ -1,0 +1,77 @@
+> db.rentals.find({ "rates": { $gte: 900, $lte: 1000 }, "max_children": { $gte: 2 } }).limit(12);
+
+
+{
+	"_id" : ObjectId("5e8fbfbf817eea098496db59"),
+	"rentals_id" : 8589,
+	"primary_photo" : "http://lorempixel.com/320/240/city?52185",
+	"owner" : 8589,
+	"rentals_types" : "Enti1028/tcpre House",
+	"rating" : 2.4169064905629,
+	"raters" : [
+		{
+			"raters_id" : 28072,
+			"voters_rating" : 2.4169064905629
+		}
+	],
+	"capacity_max" : 18,
+	"max_children" : 5,
+	"rates" : 900,
+	"term_types" : "per night",
+	"heading" : "Historic Mountain Yurt",
+	"subheading" : "Amazing Coastal Ranch",
+	"description" : "Voluptate sed iure nostrum temporibus laboriosam repudiandae. Quia recusandae ex dolorum ipsum earum et. Quibusdam facere numquam consectetur qui. Ab explicabo quidem itaque eaque et. Eos sunt vel facere laboriosam eligendi dolorum et et. Voluptas possimus placeat cumque. Laboriosam voluptas fuga praesentium fugit commodi id. Assumenda aut cumque necessitatibus vitae quam qui sed neque. Consequatur et est. Optio maiores error voluptate doloremque. Eius est pariatur eaque quas. Consequatur numquam nobis. Reprehenderit velit et nostrum repellat modi quaerat dolores quibusdam nihil. Neque ut rerum unde dicta ullam qui non inventore minus. Id ad dignissimos sed neque commodi blanditiis provident magni quae. Similique sint dolorum iusto aut modi. Sed laudantium nihil iste.",
+	"amenities" : [
+		"daily cleaning service",
+		"breakfast",
+		"laundry",
+		"kitchen"
+	],
+	"photos" : [
+		"http://lorempixel.com/320/240/city?52185"
+	],
+	"created_date" : "2020-04-10T00:28:43.043Z",
+	"updated_date" : "2020-04-10T00:28:43.043Z"
+}
+{
+	"_id" : ObjectId("5e8fbfbf817eea098496dcab"),
+	"rentals_id" : 8927,
+	"primary_photo" : "http://lorempixel.com/320/240/city?28188",
+	"owner" : 8927,
+	"rentals_types" : "Private Room",
+	"rating" : 2.845950315173703,
+	"raters" : [
+		{
+			"raters_id" : 5078,
+			"voters_rating" : 0.6428639631160993
+		},
+		{
+			"raters_id" : 11287,
+			"voters_rating" : 2.9272089754002275
+		},
+		{
+			"raters_id" : 74139,
+			"voters_rating" : 4.967778007004783
+		}
+	],
+	"capacity_max" : 23,
+	"max_children" : 4,
+	"rates" : 900,
+	"term_types" : "per night",
+	"heading" : "Beautiful Cozy Penthouse",
+	"subheading" : "Breathtaking Jungle Ecolodge",
+	"description" : "Est minus ipsam nulla iste aut. Nulla enim quaerat alias velit aut fugiat aut. Non cupiditate sed aliquam a est saepe nemo.",
+	"amenities" : [
+		"free coffee",
+		"daily cleaning service",
+		"breakfast",
+		"laundry",
+		"kitchen"
+	],
+	"photos" : [
+		"http://lorempixel.com/320/240/city?28188"
+	],
+	"created_date" : "2020-04-10T00:28:43.066Z",
+	"updated_date" : "2020-04-10T00:28:43.066Z"
+}
+

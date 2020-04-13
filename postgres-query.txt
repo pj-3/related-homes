@@ -1,0 +1,100 @@
+SELECT "rentals".*, "ratings"."id" AS "ratings.id", "ratings"."raters_id" AS "ratings.raters_id", "ratings"."voters_rating" AS "ratings.voters_rating", "ratings"."rental_id" AS "ratings.rental_id", "ratings"."rental_id" AS "ratings.rentalId", "photos"."id" AS "photos.id", "photos"."photos" AS "photos.photos", "photos"."is_primary_photo" AS "photos.is_primary_photo", "photos"."rental_id" AS "photos.rentalId" FROM (SELECT "rentals"."id", "rentals"."heading", "rentals"."subheading", "rentals"."description", "rentals"."rentals_types", "rentals"."term_types", "rentals"."rates", "rentals"."capacity_max", "rentals"."max_children", "rentals"."amenities", "rentals"."owner", "rentals"."created_date", "rentals"."updated_date" FROM "rentals" AS "rentals" WHERE ("rentals"."rates" >= 900 AND "rentals"."rates" <= 1000) AND "rentals"."max_children" >= 0 AND ( SELECT "rental_id" FROM "photos" AS "photos" WHERE ("photos"."is_primary_photo" = true AND "photos"."rental_id" = "rentals"."id") LIMIT 1 ) IS NOT NULL LIMIT 1) AS "rentals" LEFT OUTER JOIN "ratings" AS "ratings" ON "rentals"."id" = "ratings"."rental_id" INNER JOIN "photos" AS "photos" ON "rentals"."id" = "photos"."rental_id" AND "photos"."is_primary_photo" = true;
+
+
+Time: 6.420 ms
+
+
+-[ RECORD 1 ]-----------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+-----------------
+id                      | 1316860
+heading                 | Exceptional Backcountry Cottage
+subheading              | Georgeous Suburban Home
+description             | Necessitatibus doloremque similique rerum sit. Dolor voluptatibus itaque voluptatem. Ut perspiciatis fuga minus quia atque velit. Magni quisquam omnis laboriosam atque sin
+t laudantium itaque. Numquam necessitatibus enim perferendis et. Laboriosam cupiditate in est error accusantium ut facilis. Ratione iste aut aut dolorem fugiat corrupti repellendus quasi. Placeat m
+odi illum minima quis soluta ab in. Nemo nemo qui nam eligendi dicta dignissimos sed quos blanditiis. Pariatur optio magnam aut. Ut eos labore et corporis qui labore numquam. Rerum rerum incidunt q
+ui quia tenetur dignissimos. Reiciendis asperiores corporis blanditiis ut aliquam. Cumque fugiat aut aut. Quia dolorum reprehenderit dolorum molestiae a blanditiis non corrupti. Sapiente reiciendis
+ a ab. Dolorem et rerum repellendus cumque et. Debitis vel itaque voluptatem atque. Voluptatem illo est aliquid. Accusamus aut est consequatur animi qui voluptas et amet ratione. In at saepe sed si
+t voluptas dolor.
+rentals_types           | Entire Villa
+term_types              | per night
+rates                   | 900.00
+capacity_max            | 2
+max_children            | 0
+amenities               | ["breakfast","laundry","kitchen"]
+owner                   | 1316860
+created_date            | 2020-04-08 14:24:27.413-07
+updated_date            | 2020-04-08 14:24:27.413-07
+ratings.id              | 4012268
+ratings.raters_id       | 21660
+ratings.voters_rating   | 4.70
+ratings.rental_id       | 1316860
+ratings.rentalId        | 1316860
+photos.id               | 1316840
+photos.photos           | http://lorempixel.com/320/240/city?30981
+photos.is_primary_photo | t
+photos.rentalId         | 1316860
+
+-[ RECORD 2 ]-----------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+-----------------
+id                      | 1316860
+heading                 | Exceptional Backcountry Cottage
+subheading              | Georgeous Suburban Home
+description             | Necessitatibus doloremque similique rerum sit. Dolor voluptatibus itaque voluptatem. Ut perspiciatis fuga minus quia atque velit. Magni quisquam omnis laboriosam atque sin
+t laudantium itaque. Numquam necessitatibus enim perferendis et. Laboriosam cupiditate in est error accusantium ut facilis. Ratione iste aut aut dolorem fugiat corrupti repellendus quasi. Placeat m
+odi illum minima quis soluta ab in. Nemo nemo qui nam eligendi dicta dignissimos sed quos blanditiis. Pariatur optio magnam aut. Ut eos labore et corporis qui labore numquam. Rerum rerum incidunt q
+ui quia tenetur dignissimos. Reiciendis asperiores corporis blanditiis ut aliquam. Cumque fugiat aut aut. Quia dolorum reprehenderit dolorum molestiae a blanditiis non corrupti. Sapiente reiciendis
+ a ab. Dolorem et rerum repellendus cumque et. Debitis vel itaque voluptatem atque. Voluptatem illo est aliquid. Accusamus aut est consequatur animi qui voluptas et amet ratione. In at saepe sed si
+t voluptas dolor.
+rentals_types           | Entire Villa
+term_types              | per night
+rates                   | 900.00
+capacity_max            | 2
+max_children            | 0
+amenities               | ["breakfast","laundry","kitchen"]
+owner                   | 1316860
+created_date            | 2020-04-08 14:24:27.413-07
+updated_date            | 2020-04-08 14:24:27.413-07
+ratings.id              | 4012269
+ratings.raters_id       | 67540
+ratings.voters_rating   | 3.90
+ratings.rental_id       | 1316860
+ratings.rentalId        | 1316860
+photos.id               | 1316840
+photos.photos           | http://lorempixel.com/320/240/city?30981
+photos.is_primary_photo | t
+photos.rentalId         | 1316860
+
+-[ RECORD 3 ]-----------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+id                      | 1316860
+heading                 | Exceptional Backcountry Cottage
+subheading              | Georgeous Suburban Home
+description             | Necessitatibus doloremque similique rerum sit. Dolor voluptatibus itaque voluptatem. Ut perspiciatis fuga minus quia atque velit. Magni quisquam omnis laboriosam atque sint laudantium itaque. Numquam necessitatibus enim perferendis et. Laboriosam cupiditate in est error accusantium ut facilis. Ratione iste aut aut dolorem fugiat corrupti repellendus quasi. Placeat modi illum minima quis soluta ab in. Nemo nemo qui nam eligendi dicta dignissimos sed quos blanditiis. Pariatur optio magnam aut. Ut eos labore et corporis qui labore numquam. Rerum rerum incidunt qui quia tenetur dignissimos. Reiciendis asperiores corporis blanditiis ut aliquam. Cumque fugiat aut aut. Quia dolorum reprehenderit dolorum molestiae a blanditiis non corrupti. Sapiente reiciendis a ab. Dolorem et rerum repellendus cumque et. Debitis vel itaque voluptatem atque. Voluptatem illo est aliquid. Accusamus aut est consequatur animi qui voluptas et amet ratione. In at saepe sed sit voluptas dolor.
+rentals_types           | Entire Villa
+term_types              | per night
+rates                   | 900.00
+capacity_max            | 2
+max_children            | 0
+amenities               | ["breakfast","laundry","kitchen"]
+owner                   | 1316860
+created_date            | 2020-04-08 14:24:27.413-07
+updated_date            | 2020-04-08 14:24:27.413-07
+ratings.id              | 4012270
+ratings.raters_id       | 78051
+ratings.voters_rating   | 1.00
+ratings.rental_id       | 1316860
+ratings.rentalId        | 1316860
+photos.id               | 1316840
+photos.photos           | http://lorempixel.com/320/240/city?30981
+photos.is_primary_photo | t
+photos.rentalId         | 1316860
+
+-[ RECORD 4 ]-----------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:
+

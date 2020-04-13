@@ -1,15 +1,5 @@
-const { Client, Pool } = require('pg');
+const { Pool } = require('pg');
 const fs = require('fs');
-
-// var dbName = 'related_rentals',
-// username = 'postgres',
-// password = 'password',
-// host = 'localhost'
-
-// var conStringPri = 'postgres://' + username + ':' + password + '@' + host + '/'+dbName;
-
-// var client = new Client(conStringPri);
-// client.connect();
 
 
 let startTime = new Date();

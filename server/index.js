@@ -1,3 +1,4 @@
+require('newrelic');
 const express = require('express');
 const path = require('path');
 const cors = require('cors');
@@ -7,17 +8,24 @@ app.use(cors())
 app.use(express.static(path.join('client', 'public')))
 
 // connect mongodb database
-require('../database/mongo/connection.js');
+require('../database/mongo/mongodb-connection.js');
 
 // connect postgres database
 require('../database/postgres/postgres-connection.js');
 
 // load controller routes
-const v1Router = require('../controllers/index.js');
+const router = require('../controllers/index.js');
 
 
-// add controller routes
-app.use('/', v1Router);
+app.use('/v1', router);
+
+// add controller routes; redirect old route
+app.use('/houses/:houseId', (req, res) => {
+    res.header.isOldVersion = 'true'; // set old version flag
+    res.redirect('/v1/p/rentals'); // m for mongo route 
+});
+
+
 
 
 var port = process.env.PORT || 5000;

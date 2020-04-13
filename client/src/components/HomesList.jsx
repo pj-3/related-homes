@@ -20,37 +20,37 @@ class HomesList extends React.Component {
     }
   }
 
-  _loadData() {
-    axios.get(`/houses/1`, {
-      params: {
-        houseId: this.props.houseId
-      }
-    })
-    .then((response) => {
-      console.log(response)
-      this.setState({relatedHouses: response.data})
-    })
-    .catch((error) => {
-      console.log(error);
-    });
-  }
-
   componentDidMount() {
     this._loadData()
   }
 
-  componentDidUpdate(prevProps) {
-    if (prevProps.houseId !== this.props.houseId) {
-    this._loadData()
-    }
+  _loadData() {
+    axios.get(`/v1/p/rentals/`, {
+      // params: {
+      //   houseId: this.props.houseId
+      // }
+    })
+      .then((response) => {
+        console.log(response)
+        this.setState({ relatedHouses: response.data });
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   }
 
-  render () {
+  // componentDidUpdate(prevProps) {
+  //   if (prevProps.houseId !== this.props.houseId) {
+  //   this._loadData()
+  //   }
+  // }
+
+  render() {
     return (
       <Styles.AllHouses>
         <Styles.AllHousesWrapper>
           {
-            this.state.relatedHouses.map((oneHouse) => <OneHome key={oneHouse.houseId} home={oneHouse} changeCurrentHouse={this.props.changeCurrentHouse}/>)
+            this.state.relatedHouses.map((oneHouse) => <OneHome key={oneHouse.houseId} home={oneHouse} changeCurrentHouse={this.props.changeCurrentHouse} />)
           }
         </Styles.AllHousesWrapper>
       </Styles.AllHouses>

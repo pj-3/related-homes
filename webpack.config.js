@@ -12,20 +12,19 @@ module.exports = {
   module: {
     rules: [
       {
-        // devtool: "source-map",
-        test: /\.jsx?/,
-        include: src_dir,
-        exclude: /node_modules/,
+        test: /\.(js|jsx)$/,
+        exclude: /(node_modules)/,
         use: {
           loader: 'babel-loader',
           options: {
-            presets: ['@babel/preset-env', '@babel/preset-react']
-          }
-        }
-      }
+            presets: ['@babel/preset-env', '@babel/preset-react'],
+          },
+        },
+      },
     ]
   },
   resolve: {
-    extensions: ['.js', '.json', '.jsx', '.css']
-  }
+    extensions: ['.js', '.jsx', '.css']
+  },
+  devtool: "source-map"
 };

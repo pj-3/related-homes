@@ -12,7 +12,8 @@ var sequelize = new Sequelize('related_rentals', 'postgres', 'password', {
     define: {
         underscored: true,
         timestamps: false
-    }
+    },
+    logging: false
 });
 
 
@@ -24,7 +25,6 @@ const Rentals = sequelize.define('rentals', {
     rentals_types: { type: Sequelize.STRING(254) },
     term_types: { type: Sequelize.STRING(254) },
     rates: { type: Sequelize.DECIMAL(10, 2) },
-    // raters: { type: Sequelize.ARRAY(Sequelize.JSON) },
     capacity_max: { type: Sequelize.INTEGER },
     max_children: { type: Sequelize.INTEGER },
     amenities: { type: Sequelize.JSON },
