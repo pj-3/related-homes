@@ -42,11 +42,13 @@ function writeNTimes(writer, qty, encoding, callback) {
 }
 
 
+// load raters once
+const raters = require('./generate-raters.js');
 function build(rentalId, totalRecords) {
 
     const houseTypes = ['apartment unit', 'living rooom', 'condo', 'loft', 'house', 'enti1028/tcpre house', 'entire apartment', 'entire villa']
     let bedsAndHouse = helper.makeBedsAndHouseString(houseTypes);
-    let photoSrc = faker.image.imageUrl(320, 240, 'city', true);
+    let photoSrc = helper.imageLoader();
     let description = faker.lorem.paragraph(Math.floor(Math.random() * 20))
 
     let pricePerNight = faker.commerce.price();
@@ -58,22 +60,22 @@ function build(rentalId, totalRecords) {
     let maxAdult = Math.floor(Math.random() * maxCapacity);
     let maxChildren = Math.floor(Math.random() * maxAdult);
 
-    const generateRaters = function () {
-        let totalRaters = 100000;
-        let votersCount = (Math.floor(Math.random() * totalRaters)) * (Math.random() / 10000);
-        let raters = [];
-        for (let i = 0; i < votersCount; i++) {
-            let rater = {};
-            let voterRating = parseFloat(Math.random() * 5);
-            rater.raters_id = Math.floor(Math.random() * totalRaters);
-            rater.voters_rating = voterRating;
-            raters.push(rater);
-            rater = null;
-        }
-        return raters;
-    }
+    // const generateRaters = function () {
+    //     let totalRaters = 100000;
+    //     let votersCount = (Math.floor(Math.random() * totalRaters)) * (Math.random() / 10000);
+    //     let raters = [];
+    //     for (let i = 0; i < votersCount; i++) {
+    //         let rater = {};
+    //         let voterRating = parseFloat(Math.random() * 5);
+    //         rater.raters_id = Math.floor(Math.random() * totalRaters);
+    //         rater.voters_rating = voterRating;
+    //         raters.push(rater);
+    //         rater = null;
+    //     }
+    //     return raters;
+    // }
 
-    const raters = generateRaters();
+    // const raters = generateRaters();
     const rating = raters.reduce((rating, rater) => rating + rater.voters_rating, 0);
     const amenities = ['wifi', 'free coffee', 'daily cleaning service', 'breakfast', 'laundry', 'kitchen'];
     let amenItems = amenities.slice(Math.floor(Math.random() * amenities.length))

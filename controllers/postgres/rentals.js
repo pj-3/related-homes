@@ -37,15 +37,11 @@ exports.p_rentals_by = async (req, res) => {
             });
 
 
-        // if (isOldVersion === 'true') {
         buildViewForOldVersion(dbResponse, (viewData) => {
             dbResponse = viewData;
-            // console.log('dbResponse', dbResponse)
             return processDatabaseResponse(null, dbResponse, res)
         })
-        // } else {
-        //     return processDatabaseResponse(null, dbResponse, res)
-        // }
+
     } catch (err) {
         console.log(err);
         return processDatabaseResponse(null, dbResponse, res)
@@ -56,7 +52,6 @@ exports.p_rentals_by = async (req, res) => {
 
 const buildViewForOldVersion = function (dbResponse, callback) {
     let viewData = [];
-    // console.log('dbResponse', dbResponse);
     for (let key in dbResponse) {
         let rentals = dbResponse[key].dataValues;
         let photo = rentals.photos[0].dataValues;

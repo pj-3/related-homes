@@ -10,6 +10,6 @@ RUN npm install
 
 RUN npm run build-bundle
 
-EXPOSE 1028
+EXPOSE 5000
 
 CMD [ "npm", "run", "start" ]
