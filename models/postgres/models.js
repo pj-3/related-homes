@@ -18,7 +18,7 @@ var sequelize = new Sequelize('related_rentals', 'postgres', 'password', {
 
 
 const Rentals = sequelize.define('rentals', {
-    id: { type: Sequelize.INTEGER, primaryKey: true },
+    id: { type: Sequelize.INTEGER, autoIncrement: true, primaryKey: true },
     heading: { type: Sequelize.STRING(254) },
     subheading: { type: Sequelize.STRING(254) },
     description: { type: Sequelize.TEXT, allowNull: true },
@@ -33,12 +33,24 @@ const Rentals = sequelize.define('rentals', {
     updated_date: { type: Sequelize.DATE, default: Date.now }
 }, {
     // Insert fk mapping
+    indexes: [
+        {
+            name: 'rates_idx',
+            fields: ['rates']
+        },
+        {
+            name: 'rates_children_idx',
+            fields: ['rates', 'max_children']
+        }
+    ]
 })
 
 const Photos = sequelize.define('photos', {
     id: { type: Sequelize.INTEGER, autoIncrement: true, primaryKey: true },
     photos: { type: Sequelize.STRING(254) },
     is_primary_photo: { type: Sequelize.BOOLEAN },
+},  {
+    
 })
 
 const Ratings = sequelize.define('ratings', {
@@ -47,11 +59,16 @@ const Ratings = sequelize.define('ratings', {
     voters_rating: { type: Sequelize.DECIMAL(10, 2) },
     rental_id: { type: Sequelize.INTEGER }
 }, {
-    indexes: [{
-        unique: false,
-        name: 'raters_rentals_idx',
-        fields: ['raters_id', 'rental_id']
-    }
+    indexes: [
+        {
+            unique: false,
+            name: 'raters_rentals_idx',
+            fields: ['raters_id', 'rental_id']
+        },
+        {
+            name: 'raters_rental_id_idx',
+            fields: ['rental_id']
+        }
     ]
 }
 )

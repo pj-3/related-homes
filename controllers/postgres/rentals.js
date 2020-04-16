@@ -7,16 +7,16 @@ const imageHelper = require('../../database/mongo/schemaHelpers.js');
 
 // Primary Search
 exports.p_rentals_by = async (req, res) => {
-    const rating = req.query.rating || 4.4;
-    const maxRate = req.query.maxRate || 1000;
-    const minRate = req.query.minRate || 900;
-    const minChildren = req.query.children || 0;
+    // const rating = req.query.rating || 4.4;
+    // const maxRate = req.query.maxRate || 1000;
+    // const minRate = req.query.minRate || 900;
+    // const minChildren = req.query.children || 0;
     const displayQty = req.query.displayQty || 12;
     const { isOldVersion } = res.header;
     // console.log('isOldVersion=', isOldVersion);
-    // const rating = Math.floor(Math.random() * 5.5);
-    // const maxRate =  Math.floor(Math.random() * 1000);
-    // const minRate =  Math.floor(Math.random() * maxRate);
+    const rating = Math.floor(Math.random() * 5.5);
+    const maxRate =  Math.floor(Math.random() * 1000);
+    const minRate =  Math.floor(Math.random() * maxRate);
     // const minChildren =  Math.floor(Math.random() * 4);
     // const displayQty =  -(-12 - Math.floor(Math.random() * 30));
     let dbResponse = null;

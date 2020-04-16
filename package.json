@@ -7,8 +7,11 @@
   "engines": {
     "node": ">=6.13.0"
   },
+  "config": {
+    "DB_HOST": "localhost"
+  },
   "scripts": {
-    "start": "nodemon server",
+    "start": "node server/index.js",
     "react-dev": "webpack -w",
     "build-bundle": "webpack",
     "test": "jest",
@@ -29,6 +32,7 @@
     "mongoose": "^5.9.5",
     "nodemon": "^2.0.2",
     "pg": "^8.0.0",
+    "pg-format": "^1.0.4",
     "pg-hstore": "^2.3.3",
     "react": "^16.13.0",
     "react-dom": "^16.13.0",
